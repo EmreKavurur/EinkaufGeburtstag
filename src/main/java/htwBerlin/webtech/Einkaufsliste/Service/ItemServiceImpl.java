@@ -1,5 +1,7 @@
-package htwBerlin.webtech.Einkaufsliste.web;
+package htwBerlin.webtech.Einkaufsliste.Service;
 
+import htwBerlin.webtech.Einkaufsliste.Repository.ItemRepository;
+import htwBerlin.webtech.Einkaufsliste.DAO.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,11 @@ public class ItemServiceImpl implements ItemService {
             throw new RuntimeException("Item id: " + id + " not found");
         }
         return item;
+    }
+
+    @Override
+    public List<Item> findByBdayId(int bdayId) {
+        return itemRepository.findByBdayId(bdayId);
     }
 
     @Override
